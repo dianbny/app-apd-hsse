@@ -1,0 +1,84 @@
+Options -Indexes
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^landing-page$ pages/index.php?page=landing-page [L]
+RewriteRule ^detail-([a-z-]+)$ pages/detail.php?page=detail-$1 [L]
+
+RewriteRule ^login$ pages/login/index.php [L]
+RewriteRule ^registrasi$ pages/registrasi/index.php [L]
+RewriteRule ^save-new-user$ process/save_data_new_user.php?action=save-new-user [L]
+
+RewriteRule ^login-administrator$ pages/login-administrator/index.php [L]
+RewriteRule ^cek-login-admin$ process/administrator/cek_login_admin.php?action=cek-login-admin [L]
+RewriteRule ^dashboard-administrator$ pages/administrator/index.php?page=dashboard-administrator [L]
+
+RewriteRule ^list-apd-([a-z-]+)$ pages/administrator/index.php?page=list-apd-$1 [L]
+RewriteRule ^add-apd-([a-z-]+)$ pages/administrator/index.php?page=add-apd-$1 [L]
+RewriteRule ^save-data-new-([a-z-]+)$ process/administrator/save_data_for_admin.php?action=save-data-new-$1 [L]
+RewriteRule ^detail-apd-([a-z-]+)/([0-9]+)/?$ pages/administrator/index.php?page=detail-apd-$1&id=$2 [L]
+RewriteRule ^edit-apd-([a-z-]+)/([0-9]+)/?$ pages/administrator/index.php?page=edit-apd-$1&id=$2 [L]
+RewriteRule ^save-update-data-([a-z-]+)/([0-9]+)/?$ process/administrator/save_data_for_admin.php?action=save-update-data-$1&id=$2 [L]
+RewriteRule ^delete-data-([a-z-]+)/([0-9]+)/?$ process/administrator/delete_data_for_admin.php?action=delete-data-$1&id=$2 [L]
+
+RewriteRule ^borrowing-apd-([a-z-]+)$ pages/administrator/index.php?page=borrowing-apd-$1 [L]
+RewriteRule ^detail-borrowing-([a-z-]+)/([0-9]+)/?$ pages/administrator/index.php?page=detail-borrowing-$1&id=$2 [L]
+RewriteRule ^approved-status-borrowing-([a-z-]+)/([0-9]+)/?$ process/administrator/save_data_for_admin.php?action=approved-status-borrowing-$1&id=$2 [L]
+RewriteRule ^rejected-status-borrowing-([a-z-]+)/([0-9]+)/?$ process/administrator/save_data_for_admin.php?action=rejected-status-borrowing-$1&id=$2 [L]
+RewriteRule ^returned-borrowing-apd-([a-z-]+)/([0-9]+)/?$ process/administrator/save_data_for_admin.php?action=returned-borrowing-apd-$1&id=$2 [L]
+
+
+RewriteRule ^request-apd-([a-z-]+)$ pages/administrator/index.php?page=request-apd-$1 [L]
+RewriteRule ^detail-request-([a-z-]+)/([0-9]+)/?$ pages/administrator/index.php?page=detail-request-$1&id=$2 [L]
+RewriteRule ^approved-status-request-([a-z-]+)/([0-9]+)/?$ process/administrator/save_data_for_admin.php?action=approved-status-request-$1&id=$2 [L]
+RewriteRule ^rejected-status-request-([a-z-]+)/([0-9]+)/?$ process/administrator/save_data_for_admin.php?action=rejected-status-request-$1&id=$2 [L]
+
+
+RewriteRule ^status-apd-([a-z-]+)$ pages/administrator/index.php?page=status-apd-$1 [L]
+RewriteRule ^add-status-([a-z-]+)$ pages/administrator/index.php?page=add-status-$1 [L]
+RewriteRule ^save-data-status-([a-z-]+)$ process/administrator/save_data_for_admin.php?action=save-data-status-$1 [L]
+RewriteRule ^detail-status-([a-z-]+)/([0-9]+)/?$ pages/administrator/index.php?page=detail-status-$1&id=$2 [L]
+RewriteRule ^edit-status-([a-z-]+)/([0-9]+)/?$ pages/administrator/index.php?page=edit-status-$1&id=$2 [L]
+RewriteRule ^update-data-status-([a-z-]+)/([0-9]+)/?$ process/administrator/save_data_for_admin.php?action=update-data-status-$1&id=$2 [L]
+RewriteRule ^delete-status-([a-z-]+)/([0-9]+)/?$ process/administrator/delete_data_for_admin.php?action=delete-status-$1&id=$2 [L]
+
+RewriteRule ^list-user$ pages/administrator/index.php?page=list-user [L]
+RewriteRule ^add-user$ pages/administrator/index.php?page=add-user [L]
+RewriteRule ^save-data-new-user$ process/administrator/save_data_for_admin.php?action=save-data-new-user [L]
+RewriteRule ^edit-user/([0-9]+)/?$ pages/administrator/index.php?page=edit-user&id=$1 [L]
+RewriteRule ^edit-password-user/([0-9]+)/?$ pages/administrator/index.php?page=edit-password-user&id=$1 [L]
+RewriteRule ^save-update-data-user/([0-9]+)/?$ process/administrator/save_data_for_admin.php?action=save-update-data-user&id=$1 [L]
+RewriteRule ^save-update-password-user/([0-9]+)/?$ process/administrator/save_data_for_admin.php?action=save-update-password-user&id=$1 [L]
+RewriteRule ^delete-user/([0-9]+)/?$ process/administrator/delete_data_for_admin.php?action=delete-user&id=$1 [L]
+
+RewriteRule ^list-activity$ pages/administrator/index.php?page=list-activity [L]
+RewriteRule ^password$ pages/administrator/index.php?page=password [L]
+RewriteRule ^admin-save-update-password/([0-9]+)/?$ process/administrator/save_data_for_admin.php?action=admin-save-update-password&id=$1 [L]
+
+RewriteRule ^cek-login-user$ process/user/cek_login_user.php?action=cek-login-user [L]
+RewriteRule ^dashboard-user$ pages/user/index.php?page=dashboard-user [L]
+
+RewriteRule ^user-list-apd-([a-z-]+)$ pages/user/index.php?page=user-list-apd-$1 [L]
+
+RewriteRule ^user-borrowing-apd-([a-z-]+)$ pages/user/index.php?page=user-borrowing-apd-$1 [L]
+RewriteRule ^user-select-borrowing-([a-z-]+)$ pages/user/index.php?page=user-select-borrowing-$1 [L]
+RewriteRule ^user-add-borrowing-([a-z-]+)/([0-9]+)/?$ pages/user/index.php?page=user-add-borrowing-$1&id=$2 [L]
+RewriteRule ^save-data-borrowing-([a-z-]+)/([0-9]+)/?$ process/user/save_data_for_user.php?action=save-data-borrowing-$1&id=$2 [L]
+RewriteRule ^delete-borrowing-([a-z-]+)/([0-9]+)/?$ process/user/delete_data_for_user.php?action=delete-borrowing-$1&id=$2 [L]
+
+RewriteRule ^user-request-apd-([a-z-]+)$ pages/user/index.php?page=user-request-apd-$1 [L]
+RewriteRule ^user-select-request-([a-z-]+)$ pages/user/index.php?page=user-select-request-$1 [L]
+RewriteRule ^user-add-request-([a-z-]+)/([0-9]+)/?$ pages/user/index.php?page=user-add-request-$1&id=$2 [L]
+RewriteRule ^save-data-request-([a-z-]+)/([0-9]+)/?$ process/user/save_data_for_user.php?action=save-data-request-$1&id=$2 [L]
+RewriteRule ^delete-request-([a-z-]+)/([0-9]+)/?$ process/user/delete_data_for_user.php?action=delete-request-$1&id=$2 [L]
+
+RewriteRule ^my-activity$ pages/user/index.php?page=my-activity [L]
+
+RewriteRule ^password-user$ pages/user/index.php?page=password-user [L]
+RewriteRule ^user-save-update-password/([0-9]+)/?$ process/user/save_data_for_user.php?action=user-save-update-password&id=$1 [L]
+
+
+RewriteRule ^logout$ process/logout.php [L]
+

@@ -1,0 +1,20 @@
+# Matikan engine PHP
+php_flag engine off
+
+# Matikan eksekusi script
+Options -ExecCGI -Indexes
+
+# Blokir akses ke file berbahaya
+<FilesMatch "\.(php|php3|php4|php5|php7|php8|phtml|pl|py|jsp|asp|sh|cgi)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Deny,Allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Paksa file yang tidak dikenal menjadi teks biasa
+RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .phps .pl .py .jsp .asp .sh .cgi
+AddType text/plain .php .phtml .php3 .php4 .php5 .php7 .phps .pl .py .jsp .asp .sh .cgi
